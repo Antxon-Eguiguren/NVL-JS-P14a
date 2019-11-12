@@ -1,0 +1,129 @@
+<!-- 
+
+Práctica P14a - Módulo 3 JS
+
+Tenemos una lista de películas dentro de un objeto JSON. De la siguiente forma:
+
+var pelis = [
+ {
+   “Nombre”: “El señor de los anillos”,
+   “Genero”: “Acción”
+ },
+{
+   “Nombre”: “Regreso al Futuro”,
+   “Genero”: “Acción”
+ },
+{
+   “Nombre”: “Los increibles 2”,
+   “Genero”: “Animación”
+ }
+];
+
+Rellena dicha lista con 20-30 películas más.
+
+Nuestro objetivo es recorrer el listado de películas y crear una lista html desordenada donde dependiendo del género pondremos el icono característico del género que estemos tratando.
+
+No te quedes en lo superficial de la descripción. Si crees que puedes aportar más valor, ¡hazlo!. ¡Disfruta de este tiempo que estás dedicando para ti! 😉
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var pelis = [
+	 		{
+	   			'Nombre' : 'El señor de los anillos',
+	   			'Genero' : 'Accion'
+	 		},
+	 		{
+	   			'Nombre' : 'Los increibles',
+	   			'Genero' : 'Animacion'
+	 		},
+	 		{
+	   			'Nombre' : 'Cadena Perpetua',
+	   			'Genero' : 'Thriller'
+	 		},
+	 		{
+	   			'Nombre' : 'REC',
+	   			'Genero' : 'Terror'
+	 		}
+	 	];
+
+	 	var listaDesordenada = document.createElement('ul');
+	 	document.body.appendChild(listaDesordenada);
+
+		for (var clave in pelis) {
+
+					// Creo el genero de la peli
+					var elemento = document.createElement("li");
+					var elementoTexto = document.createTextNode(pelis[clave].Genero);
+					elemento.appendChild(elementoTexto);
+					listaDesordenada.appendChild(elemento);
+
+					// Creo el nombre de la peli
+					var pelicula = document.createElement("p");
+					var peliculaTexto = document.createTextNode(pelis[clave].Nombre);
+					pelicula.appendChild(peliculaTexto);
+					listaDesordenada.appendChild(pelicula);
+
+					// Creo la imagen de la peli
+					var imagen = document.createElement("img");
+					imagen.width = 200;
+					imagen.height = 200;
+					listaDesordenada.appendChild(imagen);
+
+			switch (pelis[clave].Genero) {
+
+				case 'Accion':
+					imagen.src = "images/accion.jpg";
+				break;
+
+				case 'Animacion':
+					imagen.src = "images/animacion.jpg";
+				break;
+
+				case 'Thriller':
+					imagen.src = "images/thriller.jpg";
+				break;
+
+				case 'Terror':
+					imagen.src = "images/terror.jpg";
+				break;
+
+			}
+
+  		}
+
+  	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
